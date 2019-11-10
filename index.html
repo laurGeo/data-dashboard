@@ -1,92 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<meta charset="UTF-8">
-	<title>Wine not?</title>
 
-	<link rel="stylesheet" href="dc.css">
+<head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <meta charset="UTF-8">
+   <title>Wine not?</title>
+
+   <link rel="stylesheet" href="dc.css">
 
 
 </head>
+
 <body>
-	<h1>Wine Charts</h1>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <div>
-         <div style = "width: 600px;">
-            <div id = "mystats" class = "dc-data-count" style = "float: right">
-               <span class = "filter-count"></span> selected out of <span
-                  class = "total-count"></span> | <a href = "javascript:dc.filterAll();
-                  dc.renderAll();">Reset All</a>
+   <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand">Wine Not?</a>
+      <form class="form-inline">
+         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+   </nav>
+   <div class="container">
+      <h1>Wine Charts</h1>
+      <div>
+         <div style="width: 600px;">
+            <div id="mystats" class="dc-data-count" style="float: right">
+               <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll();
+                           dc.renderAll();">Reset All</a>
             </div>
          </div>
 
-         <div style = "clear: both; padding-top: 20px;">
-            <div>               
-               <div id="line"></div>
-               <div id="bar"></div>
-               <div id="pie"></div>
-               <div id="pie2"></div>
-               <div id="scatter"></div>
+         <div style="clear: both; padding-top: 20px;">
+            <div>
+               <div class="row">
+                  <div class="col">
+                     <h3>Wines Reviewed by Country</h3>
+                     <div id="line"></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col">
+                     <h3>Wine Prices</h3>
+                     <div id="bar"></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col">
+                     <h3>Winery the Wine Came From</h3>
+                     <div id="pie"></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col">
+                     <h3>Variety of Wine</h3>
+                     <div id="pie2"></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col">
+                     <h3>The price compared to the rating</h3>
+                     <div id="scatter"></div>
+                  </div>
+               </div>
+
+
+
             </div>
          </div>
 
-         <div style = "clear: both">
-            <div class = "dc-data-grid" id = "mygrid"></div>
+         <div style="clear: both">
+            <div class="dc-data-grid" id="mygrid"></div>
+
          </div>
+
+
       </div>
+   </div>
 
-	<script>
-      
-       var barChart = dc.barChart('#line'); // , 'myChartGroup');
-       var barChart2 = dc.barChart('#bar');
-         var pieChart = dc.pieChart('#pie'); //, 'myChartGroup');
-         var pieChart2 = dc.pieChart('#pie2');
-         var countChart = dc.dataCount("#mystats");
-         var gridChart = dc.dataGrid("#mygrid");
-         var scatterPlot = dc.scatterPlot('#scatter');
 
-		d3.csv("./Data/DataSlice2.csv", function(errors, people) {
-            var mycrossfilter = crossfilter(people);
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+   <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+
+
+
+   <script>
+
+      var barChart = dc.barChart('#line'); // , 'myChartGroup');
+      var barChart2 = dc.barChart('#bar');
+      var pieChart = dc.pieChart('#pie'); //, 'myChartGroup');
+      var pieChart2 = dc.pieChart('#pie2');
+      var countChart = dc.dataCount("#mystats");
+      var gridChart = dc.dataGrid("#mygrid");
+      var scatterPlot = dc.scatterPlot('#scatter');
+
+      d3.csv("./Data/DataSlice2.csv", function (errors, people) {
+         var mycrossfilter = crossfilter(people);
 
          // country dimension
-         var countryDimension = mycrossfilter.dimension(function(data){
+         var countryDimension = mycrossfilter.dimension(function (data) {
             return data.country;
          });
          var countryGroup = countryDimension.group().reduceCount();
 
-         var wineryDimension = mycrossfilter.dimension(function(data){
+         var wineryDimension = mycrossfilter.dimension(function (data) {
             return data.winery;
          });
          var wineryGroup = wineryDimension.group().reduceCount();
 
-         var priceDimension = mycrossfilter.dimension(function(data){
+         var priceDimension = mycrossfilter.dimension(function (data) {
             return data.price;
          });
          var priceGroup = priceDimension.group().reduceCount();
 
          //variety dimension
-         var varietyDimension = mycrossfilter.dimension(function(data){
+         var varietyDimension = mycrossfilter.dimension(function (data) {
             return data.variety;
          });
          var varietyGroup = varietyDimension.group().reduceCount();
 
          //points dimension
-         var pointsDimension = mycrossfilter.dimension(function(data){
+         var pointsDimension = mycrossfilter.dimension(function (data) {
             return data.points;
          });
          var pointsGroup = pointsDimension.group().reduceCount();
 
 
-         var pointsPriceDimension = mycrossfilter.dimension(function(data) { 
+         var pointsPriceDimension = mycrossfilter.dimension(function (data) {
             return [Math.floor(data.points), Math.floor(data.price)];
          });
          var pointsPriceGroup = pointsPriceDimension.group().reduceCount();
@@ -94,8 +145,8 @@
          scatterPlot
             .width(800)
             .height(600)
-            .x(d3.scale.linear().domain([0,180]))
-            .y(d3.scale.linear().domain([0,100]))
+            .x(d3.scale.linear().domain([0, 100]))
+            .y(d3.scale.linear().domain([0, 100]))
             .brushOn(false)
             .xAxisLabel("Points")
             .yAxisLabel("Price")
@@ -107,7 +158,7 @@
          barChart2
             .height(190)
             .width(700)
-            .x(d3.scale.linear().domain([15,70]))
+            .x(d3.scale.linear().domain([15, 70]))
             .brushOn(false)
             .transitionDuration(1500)
             .dimension(priceDimension)
@@ -123,14 +174,14 @@
             .dimension(countryDimension)
             .group(countryGroup);
          pieChart
-            .width(200)
-            .height(100)
+            .width(600)
+            .height(600)
             .dimension(wineryDimension)
             .group(wineryGroup);
-         
+
          pieChart2
-            .width(200)
-            .height(100)
+            .width(600)
+            .height(600)
             .dimension(varietyDimension)
             .group(varietyGroup);
 
@@ -141,29 +192,30 @@
          gridChart
             .dimension(countryDimension)
             .group(function (data) {
-               return data.country;
+               return data.title;
             })
             .size(100)
-            .htmlGroup (function(d) { 
+            .htmlGroup(function (d) {
                return 'Country: ' + d.key +
-               '; Count: ' + d.values.length +
-               ' reviews'
+                  '; Count: ' + d.values.length +
+                  ' reviews'
             })
-            .html (function(d) { return "<div>" + d.taster_name + " " +d.taster_twitter_handle + " " + d.description + "</div></br>"; })
+            .html(function (d) { return "<div>" + d.taster_name + " " + d.taster_twitter_handle + " " + d.description + "</div></br>"; })
             .sortBy(function (d) {
                return d.taster_name;
             })
             .order(d3.ascending);
-         
-            scatterPlot.render();
+
+         scatterPlot.render();
          barChart.render();
          barChart2.render();
          pieChart.render();
          pieChart2.render();
          countChart.render();
          gridChart.render();
-         
+
       });
-	</script>
+   </script>
 </body>
+
 </html>
