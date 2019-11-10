@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body class="bg-secondary">
    <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand">Wine Not?</a>
       <form class="form-inline">
@@ -20,7 +20,7 @@
          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
    </nav>
-   <div class="container">
+   <div class="container container-dark">
       <h1>Wine Charts</h1>
       <div>
          <div style="width: 600px;">
@@ -166,12 +166,13 @@
 
          barChart
             .height(190)
-            .width(400)
+            .width(1000)
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
             .brushOn(false)
             .transitionDuration(1500)
             .dimension(countryDimension)
+            
             .group(countryGroup);
          pieChart
             .width(600)

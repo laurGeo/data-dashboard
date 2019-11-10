@@ -7,13 +7,14 @@
   
   .dc-chart rect.bar {
     stroke: none;
+    fill: #eee;
     cursor: pointer; }
     .dc-chart rect.bar:hover {
       fill-opacity: .5; }
   
   .dc-chart rect.deselected {
     stroke: none;
-    fill: #ccc; }
+    fill: #666; }
   
   .dc-chart .pie-slice {
     fill: #fff;
