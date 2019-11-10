@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Vast 2017 MINICHALLENGE 1</title>
+	<title>Wine not?</title>
 
 	<link rel="stylesheet" href="dc.css">
 
 
 </head>
 <body>
-	<h1>ChartTesting</h1>
+	<h1>Wine Charts</h1>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
@@ -26,9 +26,12 @@
          </div>
 
          <div style = "clear: both; padding-top: 20px;">
-            <div>
+            <div>               
                <div id="line"></div>
+               <div id="bar"></div>
                <div id="pie"></div>
+               <div id="pie2"></div>
+               <div id="scatter"></div>
             </div>
          </div>
 
@@ -39,96 +42,122 @@
 
 	<script>
        var barChart = dc.barChart('#line'); // , 'myChartGroup');
+       var barChart2 = dc.barChart('#bar');
          var pieChart = dc.pieChart('#pie'); //, 'myChartGroup');
+         var pieChart2 = dc.pieChart('#pie2');
          var countChart = dc.dataCount("#mystats");
          var gridChart = dc.dataGrid("#mygrid");
+         var scatterPlot = dc.scatterPlot('#scatter');
 
-		d3.csv("./Data/DataSlice.csv", function(errors, people) {
+		d3.csv("./Data/DataSlice2.csv", function(errors, people) {
             var mycrossfilter = crossfilter(people);
 
-            // age dimension
-            var ageDimension = mycrossfilter.dimension(function(data) { 
-               return ~~((Date.now() - new Date(data.DOB)) / (31557600000)) 
-            });
-            var ageGroup = ageDimension.group().reduceCount();
+         // country dimension
+         var countryDimension = mycrossfilter.dimension(function(data){
+            return data.country;
+         });
+         var countryGroup = countryDimension.group().reduceCount();
 
-            //occupation dimension
-            var occupancyDimension = mycrossfilter.dimension(function(data){
-               return data.JobTitle;
-            });
-            var top10 = occupancyDimension.top(10);
-            var occupationGroup = occupancyDimension.group().reduceCount();
+         var wineryDimension = mycrossfilter.dimension(function(data){
+            return data.winery;
+         });
+         var wineryGroup = wineryDimension.group().reduceCount();
+
+         var priceDimension = mycrossfilter.dimension(function(data){
+            return data.price;
+         });
+         var priceGroup = priceDimension.group().reduceCount();
+
+         //variety dimension
+         var varietyDimension = mycrossfilter.dimension(function(data){
+            return data.variety;
+         });
+         var varietyGroup = varietyDimension.group().reduceCount();
+
+         //points dimension
+         var pointsDimension = mycrossfilter.dimension(function(data){
+            return data.points;
+         });
+         var pointsGroup = pointsDimension.group().reduceCount();
 
 
-            // gender dimension
-            var genderDimension = mycrossfilter.dimension(function(data) { 
-               return data.gender; 
-            });
-            var genderGroup = genderDimension.group().reduceCount();
+         var pointsPriceDimension = mycrossfilter.dimension(function(data) { 
+            return [Math.floor(data.points), Math.floor(data.price)];
+         });
+         var pointsPriceGroup = pointsPriceDimension.group().reduceCount();
+         //TODO: Scatterplot on points and price
+         scatterPlot
+            .width(800)
+            .height(600)
+            .x(d3.scale.linear().domain([0,180]))
+            .y(d3.scale.linear().domain([0,100]))
+            .brushOn(false)
+            .xAxisLabel("Points")
+            .yAxisLabel("Price")
+            .symbolSize(8)
+            .clipPadding(10)
+            .dimension(pointsPriceDimension)
+            .group(pointsPriceGroup);
 
-            // year dimension
-            var yearDimension = mycrossfilter.dimension(function(data){
-               return data.Year;
-            });
-            var yearGroup = yearDimension.group().reduceCount();
-
-            // total pay dimension
-            var totalpayDimension = mycrossfilter.dimension(function(data){
-               return data.TotalPay;
-            });
-            var totalpayGroup = totalpayDimension.group().reduceCount();
-
-         barChart
-            .width(400)
-            .height(200)
-            .x(d3.scale.ordinal())
-            .yAxisLabel("Count")
-            .xAxisLabel("Age")
-            .elasticY(true)
-            .elasticX(true)
-            .dimension(occupancyDimension)
-            .group(occupationGroup);
+         barChart2
+            .height(190)
+            .width(700)
+            .x(d3.scale.linear().domain([15,70]))
+            .brushOn(false)
+            .transitionDuration(1500)
+            .dimension(priceDimension)
+            .group(priceGroup);
 
          barChart
             .height(190)
-            .width(8000)
+            .width(400)
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
             .brushOn(false)
             .transitionDuration(1500)
-            .dimension(occupancyDimension)
-            .group(occupationGroup);
+            .dimension(countryDimension)
+            .group(countryGroup);
          pieChart
             .width(200)
             .height(100)
-            .dimension(genderDimension)
-            .group(genderGroup);
+            .dimension(wineryDimension)
+            .group(wineryGroup);
+         
+         pieChart2
+            .width(200)
+            .height(100)
+            .dimension(varietyDimension)
+            .group(varietyGroup);
 
          countChart
             .dimension(mycrossfilter)
             .group(mycrossfilter.groupAll());
 
          gridChart
-            .dimension(genderDimension)
+            .dimension(countryDimension)
             .group(function (data) {
-               return data.gender;
+               return data.country;
             })
             .size(100)
             .htmlGroup (function(d) { 
-               return 'Gender: ' + d.key +
+               return 'Country: ' + d.key +
                '; Count: ' + d.values.length +
-               ' people'
+               ' reviews'
             })
-            .html (function(d) { return d.EmployeeName; })
+            .html (function(d) { return  d.taster_name + " " +d.taster_twitter_handle + " " + d.description;})
             .sortBy(function (d) {
-               return d.EmployeeName;
+               return d.taster_name;
             })
             .order(d3.ascending);
-
+         
+            scatterPlot.render();
          barChart.render();
+         barChart2.render();
          pieChart.render();
+         pieChart2.render();
          countChart.render();
          gridChart.render();
+         
       });
 	</script>
 </body>
