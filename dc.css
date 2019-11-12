@@ -208,3 +208,7 @@
   
   .dc-hard .number-display {
     float: none; }
+
+  section{
+    display: block;
+  }
