@@ -7,7 +7,6 @@
   
   .dc-chart rect.bar {
     stroke: none;
-    fill: #eee;
     cursor: pointer; }
     .dc-chart rect.bar:hover {
       fill-opacity: .5; }
