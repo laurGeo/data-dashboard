@@ -8,18 +8,33 @@
    <title>Wine not?</title>
 
    <link rel="stylesheet" href="dc.css">
-
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
-<body class="bg-secondary">
-   <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand">Wine Not?</a>
-      <form class="form-inline">
-         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-   </nav>
+<body class="bg">
+   
+   <div class="heading-container">
+         <p>Wine not?</p>
+   </div>
+   <div class="header">
+        
+         <ul class="nav justify-content-center">
+               <li class="nav-item">
+                 <a class="nav-link active" href="#">Active</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Link</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#prices">Link</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link disabled" href="#">Disabled</a>
+               </li>
+             </ul>
+             
+   </div>
    <div class="container">
       <h1>Wine Charts</h1>
       <div>
@@ -33,15 +48,15 @@
          <div style="clear: both; padding-top: 20px;">
             <div>
                <section>
-               <div class="row">
-                  <div class="col">
+               <div class="row ">
+                  <div class="col-4">
                      <h3>Wines Reviewed by Country</h3>
                      <div id="line"></div>
                   </div>
                </div>
             </section>
 
-            <section>
+            <section id="prices">
                <div class="row">
                   <div class="col">
                      <h3>Wine Prices</h3>
