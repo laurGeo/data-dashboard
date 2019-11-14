@@ -12,7 +12,7 @@
 
 </head>
 
-<body class="bg-light">
+<body class="bg-white">
    
    <div class="heading-container">
          <p class="heading-paragraph">Wine not?</p>
@@ -51,14 +51,14 @@
    <div class="container">
       <div class="row bg-light">
             <blockquote id="winenot" class="blockquote text-center">
-                  <p> Want to learn about wine? You have come to the right place. Below are several interactive charts, you can use to query
-                        the data you love, about the wine you love!
+                  <p> <br>Want to learn about wine? You have come to the right place. Below are several interactive charts, you can use to query
+                        the data you love, about the wine you love!<br>
             
-                        Below you will see graphs, which you can click on, in order to filter data on other graphs.
+                        <br>Below you will see graphs, which you can click on, in order to filter data on other graphs.<br>
             
-                        This means you get the information you want, when you want, at the click of a button.
+                        <br>This means you get the information you want, when you want, at the click of a button.<br>
             
-                        If you have any questions about the site or feedback, please use our social media listed below in the footer.
+                        <br>If you have any questions about the site or feedback, please use our social media listed below in the footer.<br>
                      </p>
                   <footer class="blockquote-footer">Wine Not? Creators</footer>
                 </blockquote>
@@ -207,6 +207,11 @@
             return [Math.floor(data.points), Math.floor(data.price)];
          });
          var pointsPriceGroup = pointsPriceDimension.group().reduceCount();
+
+         var designationDimension = mycrossfilter.dimension(function(data){
+            return data.designation;
+         });
+         var designationGroup = designationDimension.group().reduceCount();
          //TODO: Scatterplot on points and price
          scatterPlot
             .width(800)
@@ -218,6 +223,7 @@
             .yAxisLabel("Price")
             .symbolSize(8)
             .clipPadding(10)
+            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
             .dimension(pointsPriceDimension)
             .group(pointsPriceGroup);
 
@@ -225,6 +231,7 @@
             .height(190)
             .width(700)
             .x(d3.scale.linear().domain([15, 70]))
+            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
             .brushOn(false)
             .transitionDuration(1500)
             .dimension(priceDimension)
@@ -235,6 +242,7 @@
             .width(1000)
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
+            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
             .brushOn(false)
             .transitionDuration(1500)
             .dimension(countryDimension)
@@ -244,6 +252,7 @@
             .width(900)
             .height(600)
             .dimension(wineryDimension)            
+            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
             .group(wineryGroup)
             .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));
 
@@ -252,7 +261,8 @@
             .height(600)
             .dimension(varietyDimension)
             .group(varietyGroup)
-            .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));;
+            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
+            .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));
 
          countChart
             .dimension(mycrossfilter)
@@ -285,6 +295,7 @@
 
       });
    </script>
+   
 </body>
 
 </html>
