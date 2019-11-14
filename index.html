@@ -46,63 +46,72 @@
              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
            </form>
          </div>
-       </nav>
-   <div class="container">
-      <h1>Wine Charts</h1>
-      <div>
-         <div style="width: 600px;">
-            <div id="mystats" class="dc-data-count" style="float: right">
-               <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll();
-                           dc.renderAll();">Reset All</a>
-            </div>
-         </div>
+   </nav>
 
+   <div class="container">
+         <h1 class="display-1">Wine Charts</h1>
+
+      <div>
+         <div class="row">
+               <div style="width: 600px;">
+                     <div id="mystats" class="dc-data-count" style="float: right">
+                        <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll();
+                                    dc.renderAll();">Reset All</a>
+                     </div>
+               </div>
+         </div>
          <div style="clear: both; padding-top: 20px;">
             <div>
-               <section id="reviews">
-               <div class="row ">
-                  <div class="col-4">
-                     <h3>Wines Reviewed by Country</h3>
-                     <div id="line"></div>
-                  </div>
+               <div class="row bg-light">
+                  <section id="reviews">
+                        <div class="row ">
+                           <div class="col-8">
+                              <h3 class="display-4">Wines Reviewed by Country</h3>
+                              <div id="line"></div>
+                           </div>
+                        </div>
+                     </section>
                </div>
-            </section>
-
-            <section id="prices">
-               <div class="row">
-                  <div class="col">
-                     <h3>Wine Prices</h3>
-                     <div id="bar"></div>
-                  </div>
+               <div class="row bg-light">
+                  <section id="prices">
+                        <div class="row">
+                           <div class="col">
+                              <h3 class="display-4">Wine Prices</h3>
+                              <div id="bar"></div>
+                           </div>
+                        </div>
+                     </section>
                </div>
-            </section>
-
-            <section id="winery">
-               <div class="row">
-                  <div class="col">
-                     <h3>Winery the Wine Came From</h3>
-                     <div id="pie"></div>
-                  </div>
+               <div class="row bg-light">
+                     <section id="winery">
+                           <div class="row">
+                              
+                                 <h3 class="display-4">Winery the Wine Came From</h3>
+                                 <div id="pie"></div>
+                          
+                           </div>
+                        </section>
                </div>
-            </section>
-
-            <section id="variety">
-               <div class="row">
-                  <div class="col">
-                     <h3>Variety of Wine</h3>
-                     <div id="pie2"></div>
-                  </div>
+               <div class="row bg-light">
+                  <section id="variety">
+                        <div class="row">
+                           <div class="col">
+                              <h3 class="display-4">Variety of Wine</h3>
+                              <div id="pie2"></div>
+                           </div>
+                        </div>
+                     </section>
                </div>
-            </section>
-
-            <section id="price-rating">
-               <div class="row">
-                  <div class="col">
-                     <h3>The price compared to the rating</h3>
-                     <div id="scatter"></div>
-                  </div>
-               </div>
-            </section>
+               <div class="row bg-light">
+                     <section id="price-rating">
+                           <div class="row">
+                              <div class="col">
+                                 <h3 class="display-4">The price compared to the rating</h3>
+                                 <div id="scatter"></div>
+                              </div>
+                           </div>
+                        </section>
+               </div>        
             </div>
          </div>
 
@@ -213,16 +222,18 @@
             
             .group(countryGroup);
          pieChart
-            .width(600)
+            .width(900)
             .height(600)
-            .dimension(wineryDimension)
-            .group(wineryGroup);
+            .dimension(wineryDimension)            
+            .group(wineryGroup)
+            .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));
 
          pieChart2
-            .width(600)
+            .width(900)
             .height(600)
             .dimension(varietyDimension)
-            .group(varietyGroup);
+            .group(varietyGroup)
+            .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));;
 
          countChart
             .dimension(mycrossfilter)
