@@ -12,7 +12,7 @@
 
 </head>
 
-<body class="bg">
+<body class="bg-light">
    
    <div class="heading-container">
          <p>Wine not?</p>
@@ -116,7 +116,11 @@
          </div>
 
          <div style="clear: both">
-            <div class="dc-data-grid" id="mygrid"></div>
+            <div class="dc-data-grid" id="mygrid">
+                  
+
+                  </blockquote>
+            </div>
 
          </div>
 
@@ -250,7 +254,7 @@
                   '; Count: ' + d.values.length +
                   ' reviews'
             })
-            .html(function (d) { return "<div>" + d.taster_name + " " + d.taster_twitter_handle + " " + d.description + "</div></br>"; })
+            .html(function (d) { return "<blockquote class=\"blockquote text-center\">"+ " " + d.description + "</div></br>" + "<div> <footer class=\"blockquote-footer\">" + d.taster_name + "(" +d.taster_twitter_handle +")"+ "</footer> </blockquote><br>" ; })
             .sortBy(function (d) {
                return d.taster_name;
             })
