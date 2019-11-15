@@ -156,27 +156,20 @@
       </div>  
 
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-   <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"crossorigin="anonymous"></script>
 
 
 
    <script>
 
-      var barChart = dc.barChart('#line'); // , 'myChartGroup');
+      var barChart = dc.barChart('#line');
       var barChart2 = dc.barChart('#bar');
-      var pieChart = dc.pieChart('#pie'); //, 'myChartGroup');
+      var pieChart = dc.pieChart('#pie'); 
       var pieChart2 = dc.pieChart('#pie2');
       var countChart = dc.dataCount("#mystats");
       var gridChart = dc.dataGrid("#mygrid");
@@ -190,12 +183,13 @@
             return data.country;
          });
          var countryGroup = countryDimension.group().reduceCount();
-
+         //winery dimension
          var wineryDimension = mycrossfilter.dimension(function (data) {
             return data.winery;
          });
          var wineryGroup = wineryDimension.group().reduceCount();
 
+         //price dimension
          var priceDimension = mycrossfilter.dimension(function (data) {
             return data.price;
          });
@@ -213,17 +207,21 @@
          });
          var pointsGroup = pointsDimension.group().reduceCount();
 
-
+         //pointsprice dimension
          var pointsPriceDimension = mycrossfilter.dimension(function (data) {
             return [Math.floor(data.points), Math.floor(data.price)];
          });
          var pointsPriceGroup = pointsPriceDimension.group().reduceCount();
 
+         //Designation dimension
          var designationDimension = mycrossfilter.dimension(function(data){
             return data.designation;
          });
          var designationGroup = designationDimension.group().reduceCount();
-         //TODO: Scatterplot on points and price
+         
+
+         
+         // DRAWING THE SVG CHARTS
          
          scatterPlot
             .width(1000)
@@ -293,7 +291,7 @@
             })
             .size(100)
             .htmlGroup(function (d) {
-               return 'Country: ' + d.key +
+               return d.points + 'Wine Title: ' + d.key +
                   '; Count: ' + d.values.length +
                   ' reviews'
             })
