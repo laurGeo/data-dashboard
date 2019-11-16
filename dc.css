@@ -45,6 +45,11 @@
     float: left; 
     overflow: auto;
   }
+  section{
+    border: 1px solid white;
+    display: block;
+    overflow: auto;
+  }
   .footer {
     position: static;
     left: 0;
@@ -258,10 +263,6 @@
   
   .dc-hard .number-display {
     float: none; }
-
-  section{
-    display: block;
-  }
 
   .sidebar {
     margin: 0;
