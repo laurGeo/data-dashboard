@@ -13,153 +13,212 @@
 </head>
 
 <body class="bg-light">
-   
+
    <div class="heading-container">
-         <p class="heading-paragraph">Wine not?</p>
+      <p class="heading-paragraph">Wine not?</p>
    </div>
-   
+
    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-         <button class="navbar-toggler" type="button" data-toggle="collapse">
-           <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse">
-           <a class="navbar-brand" href="#winenot">Wine Not?</a>
-           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-             <li class="nav-item active">
-                  <a class="nav-link" href="#reviews">Review By Country</a>
-             </li>
-             <li class="nav-item">
-                  <a class="nav-link" href="#prices">Wine Prices</a>
-             </li>
-             <li class="nav-item">
-                  <a class="nav-link" href="#winery">Winery</a>
-             </li>
-             <li class="nav-item">
-                  <a class="nav-link" href="#variety">Variety of Wine</a>
-             </li>
-             <li class="nav-item">
-                  <a class="nav-link" href="#price-rating">Price Rating</a>
-             </li>
-           </ul>
-           <form class="form-inline my-2 my-lg-0">
-             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-           </form>
-         </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+         <a class="navbar-brand" href="#winenot">Wine Not?</a>
+         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+               <a class="nav-link" href="#reviews">Review By Country</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#prices">Wine Prices</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#winery">Winery</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#variety">Variety of Wine</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#price-rating">Price Rating</a>
+            </li>
+         </ul>
+         <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+         </form>
+      </div>
    </nav>
 
    <div class="container">
       <div class="row bg-light">
-            <blockquote id="winenot" class="blockquote text-center">
-                  <p> <br>Want to learn about wine? You have come to the right place. Below are several interactive charts, you can use to query
-                        the data you love, about the wine you love!<br>
-            
-                        <br>Below you will see graphs, which you can click on, in order to filter data on other graphs.<br>
-            
-                        <br>This means you get the information you want, when you want, at the click of a button.<br>
-            
-                        <br>If you have any questions about the site or feedback, please use our social media listed below in the footer.<br>
-                     </p>
-                  <footer class="blockquote-footer">Wine Not? Creators</footer>
-                </blockquote>
-         
+         <blockquote id="winenot" class="blockquote text-center">
+            <p> <br>Want to learn about wine? You have come to the right place. Below are several interactive charts,
+               you can use to query
+               the data you love, about the wine you love!<br>
+
+               <br>Below you will see graphs, which you can click on, in order to filter data on other graphs.<br>
+
+               <br>This means you get the information you want, when you want, at the click of a button.<br>
+
+               <br>If you have any questions about the site or feedback, please use our social media listed below in the
+               footer.<br>
+            </p>
+            <footer class="blockquote-footer">Wine Not? Creators</footer>
+         </blockquote>
+
       </div>
-         <h1 class="display-1">Wine Charts</h1>
+      <h1 class="display-1">Wine Charts</h1>
 
       <div>
          <div class="row">
-               <div style="width: 600px;">
-                     <div id="mystats" class="dc-data-count" style="float: right">
-                        <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll();
+            <div style="width: 600px;">
+               <div id="mystats" class="dc-data-count" style="float: right">
+                  <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll();
                                     dc.renderAll();">Reset All</a>
-                     </div>
                </div>
+            </div>
          </div>
          <div style="clear: both; padding-top: 20px;">
             <div>
                <div class="row bg-light">
-                  <section id="reviews">
-                        <div class="row ">
-                           <div class="col-8">
-                              <h3 class="display-4">Wines Reviewed by Country</h3>
-                              <div id="line"></div>
+                  <section id="overview">
+                        <h3 class="display-4">Overview</h3>
+                     <div class="row">
+
+                       
+
+                        <div class="card">
+                           <div class="card-body">
+                              <h5 class="card-title">
+                                 50%
+                              </h5>
+                              <div clas="card-text">
+                                 of ppl do this thing.
+                              </div>
                            </div>
                         </div>
-                     </section>
+                        <div class="card">
+                           <div class="card-body">
+                              <h5 class="card-title">
+                                 50%
+                              </h5>
+                              <div clas="card-text">
+                                 of ppl do this thing.
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card">
+                           <div class="card-body">
+                              <h5 class="card-title">
+                                 50%
+                              </h5>
+                              <div clas="card-text">
+                                 of ppl do this thing.
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card">
+                           <div class="card-body">
+                              <h5 class="card-title">
+                                 50%
+                              </h5>
+                              <div clas="card-text">
+                                 of ppl do this thing.
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                  </section>
+               </div>
+               <div class="row bg-light">
+                  <section id="reviews">
+                     <div class="row ">
+                        <div class="col-8">
+                           <h3 class="display-4">Wines Reviewed by Country</h3>
+                           <div id="line"></div>
+                        </div>
+                     </div>
+                  </section>
                </div>
                <div class="row bg-light">
                   <section id="prices">
-                        <div class="row">
-                           <div class="col">
-                              <h3 class="display-4">Wine Prices</h3>
-                              <div id="bar"></div>
-                           </div>
+                     <div class="row">
+                        <div class="col">
+                           <h3 class="display-4">Wine Prices</h3>
+                           <div id="bar"></div>
                         </div>
-                     </section>
+                     </div>
+                  </section>
                </div>
                <div class="row bg-light">
-                     <section id="winery">
-                           <div class="row">
-                              
-                                 <h3 class="display-4">Winery the Wine Came From</h3>
-                                 <div id="pie"></div>
-                          
-                           </div>
-                        </section>
+                  <section id="winery">
+                     <div class="row">
+
+                        <h3 class="display-4">Winery the Wine Came From</h3>
+                        <div id="pie"></div>
+
+                     </div>
+                  </section>
                </div>
                <div class="row bg-light">
                   <section id="variety">
-                        <div class="row">
-                           <div class="col">
-                              <h3 class="display-4">Variety of Wine</h3>
-                              <div id="pie2"></div>
-                           </div>
+                     <div class="row">
+                        <div class="col">
+                           <h3 class="display-4">Variety of Wine</h3>
+                           <div id="pie2"></div>
                         </div>
-                     </section>
+                     </div>
+                  </section>
                </div>
                <div class="row bg-light">
-                     <section id="price-rating">
-                           <div class="row">
-                              <div class="col">
-                                 <h3 class="display-4">The price compared to the rating</h3>
-                                 <div id="scatter"></div>
-                              </div>
-                           </div>
-                        </section>
-               </div>        
+                  <section id="price-rating">
+                     <div class="row">
+                        <div class="col">
+                           <h3 class="display-4">The price compared to the rating</h3>
+                           <div id="scatter"></div>
+                        </div>
+                     </div>
+                  </section>
+               </div>
             </div>
          </div>
          <h3 class="display-4">Reviews</h3>
          <div style="clear: both">
             <div class="dc-data-grid" id="mygrid">
-                  
+
             </div>
 
          </div>
 
 
       </div>
- 
+
    </div>
    <div class="footer">
-         <div id="socials-footer">
+      <div id="socials-footer">
 
-            <a href= "#"><i class="fa fa-facebook fa-2x"></i></a>
-            <a href="#" ><i class="fa fa-twitter fa-2x"></i></a>
-            <a href="#" ><i class="fa fa-instagram fa-2x"></i></a>
-            <a href="#" ><i class="fa fa-youtube fa-2x"></i></a>
-            <a href="#"> <i class="fa fa-spotify fa-2x"></i> </a>
+         <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+         <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+         <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+         <a href="#"><i class="fa fa-youtube fa-2x"></i></a>
+         <a href="#"> <i class="fa fa-spotify fa-2x"></i> </a>
 
-         </div>
-      </div>  
+      </div>
+   </div>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
 
 
 
@@ -167,11 +226,13 @@
 
       var barChart = dc.barChart('#line');
       var barChart2 = dc.barChart('#bar');
-      var pieChart = dc.pieChart('#pie'); 
+      var pieChart = dc.pieChart('#pie');
       var pieChart2 = dc.pieChart('#pie2');
       var countChart = dc.dataCount("#mystats");
       var gridChart = dc.dataGrid("#mygrid");
       var scatterPlot = dc.scatterPlot('#scatter');
+
+      var reviewGrid = dc.dataGrid('#review-data');
 
       d3.csv("./Data/DataSlice2.csv", function (errors, people) {
          var mycrossfilter = crossfilter(people);
@@ -212,24 +273,24 @@
          var pointsPriceGroup = pointsPriceDimension.group().reduceCount();
 
          //Designation dimension
-         var designationDimension = mycrossfilter.dimension(function(data){
+         var designationDimension = mycrossfilter.dimension(function (data) {
             return data.designation;
          });
          var designationGroup = designationDimension.group().reduceCount();
-         
 
-         
+
+
          // DRAWING THE SVG CHARTS
-         
+
          scatterPlot
             .width(1000)
             .height(1000)
             .margins({
-                    top: 0,
-                    right: 0,
-                    bottom: 40,
-                    left: 40
-                })
+               top: 0,
+               right: 0,
+               bottom: 40,
+               left: 40
+            })
             .x(d3.scale.linear().domain([0, 100]))
             .y(d3.scale.linear().domain([0, 100]))
             .brushOn(false)
@@ -237,7 +298,7 @@
             .yAxisLabel("Price")
             .symbolSize(8)
             .clipPadding(10)
-            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
+            .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
             .dimension(pointsPriceDimension)
             .group(pointsPriceGroup);
 
@@ -245,7 +306,7 @@
             .height(190)
             .width(700)
             .x(d3.scale.linear().domain([15, 70]))
-            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
+            .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
             .brushOn(false)
             .transitionDuration(1500)
             .dimension(priceDimension)
@@ -256,17 +317,17 @@
             .width(1000)
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
-            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
+            .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
             .brushOn(false)
             .transitionDuration(1500)
             .dimension(countryDimension)
-            
+
             .group(countryGroup);
          pieChart
             .width(900)
             .height(600)
-            .dimension(wineryDimension)            
-            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
+            .dimension(wineryDimension)
+            .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
             .group(wineryGroup)
             .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));
 
@@ -275,7 +336,7 @@
             .height(600)
             .dimension(varietyDimension)
             .group(varietyGroup)
-            .ordinalColors(['#FF0000','#8B0000','#800000','#FF6347','#FF4500','#FFA07A','#DB7093', '#FA8072', '#E9967A'])
+            .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
             .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));
 
          countChart
@@ -293,10 +354,26 @@
                   '; Count: ' + d.values.length +
                   ' reviews'
             })
-            .html(function (d) { return "<blockquote class=\"blockquote text-center\">"+ " " + d.description + "</div></br>" + "<div> <footer class=\"blockquote-footer\">" + d.taster_name + "(" +d.taster_twitter_handle +")"+ "</footer> </blockquote><br>" ; })
+            .html(function (d) { return "<blockquote class=\"blockquote text-center\">" + " " + d.description + "</div></br>" + "<div> <footer class=\"blockquote-footer\">" + d.taster_name + "(" + d.taster_twitter_handle + ")" + "</footer> </blockquote><br>"; })
             .sortBy(function (d) {
                return d.taster_name;
             })
+            .order(d3.ascending);
+
+         reviewGrid
+            .dimension(countryDimension)
+            .group(function (data) {
+               return data.country
+            })
+            .sortBy(function (d) {
+               return d.country;
+            })
+            .size(100)
+            .htmlGroup(function (d) {
+               return d.values.length
+            })
+            .html(function (d) { return d.country })
+
             .order(d3.ascending);
 
          scatterPlot.render();
@@ -306,10 +383,11 @@
          pieChart2.render();
          countChart.render();
          gridChart.render();
+         reviewGrid.render();
 
       });
    </script>
-   
+
 </body>
 
 </html>
