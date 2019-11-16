@@ -48,7 +48,7 @@
       </div>
    </nav>
 
-   <div class="container">
+   <div class="container-fluid">
       <div class="row bg-light">
          <blockquote id="winenot" class="blockquote text-center">
             <p> <br>Want to learn about wine? You have come to the right place. Below are several interactive charts,
@@ -132,59 +132,54 @@
                </div>
                <div class="row bg-light">
                   <section id="reviews">
-                     <h3 class="display-4">Wines Reviewed by Country</h3>
-                     <div class="row ">
-                        <div class="col-8">
+                     <h3 class="display-5">Wines Reviewed by Country</h3>
 
-                           <div id="line"></div>
-                        </div>
+                     <div class="col">
+                        <div id="line"></div>
+
                      </div>
                   </section>
-               </div>
-               <div class="row bg-light">
-                  <section id="prices">
-                     <h3 class="display-4">Wine Prices</h3>
-                     <div class="row">
-                        <div class="col">
 
-                           <div id="bar"></div>
-                        </div>
+                  <section id="prices">
+                     <h3 class="display-5">Wine Prices</h3>
+
+                     <div class="col">
+
+                        <div id="bar"></div>
+
+                     </div>
+                  </section>
+                  <section id="price-rating">
+                     <h3 class="display-5">The price compared to the rating</h3>
+
+                     <div class="col">
+                        <div id="scatter"></div>
+
                      </div>
                   </section>
                </div>
                <div class="row bg-light">
                   <section id="winery">
-                     <h3 class="display-4">Winery the Wine Came From</h3>
-                     <div class="row">
+                     <h3 class="display-5">Winery the Wine Came From</h3>
 
 
-                        <div id="pie"></div>
 
-                     </div>
+                     <div id="pie"></div>
+
+
                   </section>
-               </div>
-               <div class="row bg-light">
+
                   <section id="variety">
-                     <h3 class="display-4">Variety of Wine</h3>
-                     <div class="row">
-                        <div class="col">
+                     <h3 class="display-5">Variety of Wine</h3>
 
-                           <div id="pie2"></div>
-                        </div>
+                     <div class="col">
+
+                        <div id="pie2"></div>
                      </div>
+
                   </section>
                </div>
-               <div class="row bg-light">
-                  <section id="price-rating">
-                     <h3 class="display-4">The price compared to the rating</h3>
-                     <div class="row">
-                        <div class="col">
 
-                           <div id="scatter"></div>
-                        </div>
-                     </div>
-                  </section>
-               </div>
             </div>
          </div>
          <h3 class="display-4">Reviews</h3>
@@ -241,7 +236,6 @@
 
       d3.csv("./Data/DataSlice2.csv", function (errors, people) {
          var mycrossfilter = crossfilter(people);
-
          // country dimension
          var countryDimension = mycrossfilter.dimension(function (data) {
             return data.country;
@@ -288,8 +282,8 @@
          // DRAWING THE SVG CHARTS
 
          scatterPlot
-            .width(1000)
-            .height(1000)
+            .width(500)
+            .height(300)
             .margins({
                top: 0,
                right: 0,
@@ -308,8 +302,8 @@
             .group(pointsPriceGroup);
 
          barChart2
-            .height(190)
-            .width(700)
+            .height(300)
+            .width(500)
             .x(d3.scale.linear().domain([15, 70]))
             .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
             .brushOn(false)
@@ -318,8 +312,8 @@
             .group(priceGroup);
 
          barChart
-            .height(190)
-            .width(1000)
+            .height(300)
+            .width(500)
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
             .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
@@ -329,20 +323,20 @@
 
             .group(countryGroup);
          pieChart
-            .width(900)
-            .height(600)
+            .width(800)
+            .height(300)
             .dimension(wineryDimension)
             .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
             .group(wineryGroup)
-            .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));
+            .legend(dc.legend().x(0).y(50).itemHeight(13).gap(5));
 
          pieChart2
-            .width(900)
-            .height(600)
+            .width(800)
+            .height(300)
             .dimension(varietyDimension)
             .group(varietyGroup)
             .ordinalColors(['#FF0000', '#8B0000', '#800000', '#FF6347', '#FF4500', '#FFA07A', '#DB7093', '#FA8072', '#E9967A'])
-            .legend(dc.legend().x(0).y(100).itemHeight(13).gap(5));
+            .legend(dc.legend().x(0).y(50).itemHeight(13).gap(5));
 
          countChart
             .dimension(mycrossfilter)
@@ -381,18 +375,12 @@
 
             .order(d3.ascending);
 
-         // scatterPlot.render();
-         // barChart.render();
-         // barChart2.render();
-         // pieChart.render();
-         // pieChart2.render();
-         // countChart.render();
-         // gridChart.render();
-         // reviewGrid.render();
 
          dc.renderAll();
 
       });
+
+
    </script>
 
 </body>
