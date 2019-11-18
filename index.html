@@ -28,7 +28,7 @@
          data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
          aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-         <a class="navbar-brand" href="#winenot">W<span><i class="fas fa-wine-bottle"></i></span>ne Not?</a>
+         
          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
                <a class="nav-link" href="#reviews">Review By Country</a>
@@ -49,12 +49,9 @@
                <a class="nav-link" href="#reviews">Reviews</a>
             </li>
          </ul>
-         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2 disabled" type="search" placeholder="Search" id="myInput"
-               aria-label="Search">
-
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-         </form>
+         <span class="navbar-text">
+               <a class="navbar-brand" href="#winenot">W<span><i class="fas fa-wine-bottle"></i></span>ne Not?</a>
+             </span>
       </div>
    </nav>
 
@@ -248,7 +245,7 @@
       </div>
 
       <div class="footer-copyright text-center py-3">© 2019 Copyright:
-         <a href="#"> Wine Not? Creators</a>
+         <a href="#"> W<span><i class="fas fa-wine-bottle"></i></span>ne Not? Creators</a>
       </div>
 
    </footer>
@@ -278,35 +275,27 @@
       var numCountry = dc.numberDisplay('#numCountry');
       var pnGroup = dc.numberDisplay('#pnGroup');
       var tdgGroup = dc.numberDisplay('#tdgGroup');
-      var avgPts = dc.numberDisplay('#avgPts');
       var reviewGrid = dc.dataGrid('#review-data');
 
       d3.csv("./Data/DataSlice2.csv", function (errors, people) {
          var mycrossfilter = crossfilter(people);
-         var count = mycrossfilter.groupAll().reduceCount().value();
 
          var filteringCountry = mycrossfilter.dimension(function (d) { return d.country; });
          var f = filteringCountry.filter("US");
          var n = f.top(Infinity).length;
-         var grouping = f.group().reduceCount();
          filteringCountry.filterAll();
 
 
          var pn = mycrossfilter.dimension(function (d) { return d.variety; });
          var p = pn.filter("Pinot Noir");
          var num = p.top(Infinity).length;
-         var pgrouping = p.group().reduceCount();
          pn.filterAll();
 
 
          var tdg = mycrossfilter.dimension(function (d) { return d.winery; });
          var t = tdg.filter("Terre di Giurfo");
          var val = t.top(Infinity).length;
-         var tdgGrouping = t.group().reduceCount();
          tdg.filterAll();
-
-         var pointsAwarded = mycrossfilter.dimension(function (d) { return d.points; });
-         var rangeptsAwarded = pointsAwarded.group().reduceCount().all();
 
 
          // country dimension
@@ -333,23 +322,11 @@
          });
          var varietyGroup = varietyDimension.group().reduceCount();
 
-         //points dimension
-         var pointsDimension = mycrossfilter.dimension(function (data) {
-            return data.points;
-         });
-         var pointsGroup = pointsDimension.group().reduceCount();
-
          //pointsprice dimension
          var pointsPriceDimension = mycrossfilter.dimension(function (data) {
             return [Math.floor(data.points), Math.floor(data.price)];
          });
          var pointsPriceGroup = pointsPriceDimension.group().reduceCount();
-
-         //Designation dimension
-         var designationDimension = mycrossfilter.dimension(function (data) {
-            return data.designation;
-         });
-         var designationGroup = designationDimension.group().reduceCount();
 
 
 
@@ -367,7 +344,7 @@
                   return (val / mycrossfilter.size());
                }
             })
-            .group(wineryGroup)
+            .group(wineryGroup);
 
          pnGroup
             .formatNumber(d3.format(".2%"))
@@ -379,7 +356,7 @@
                   return (num / mycrossfilter.size());
                }
             })
-            .group(varietyGroup)
+            .group(varietyGroup);
 
          numCountry
             .formatNumber(d3.format(".2%"))
@@ -390,7 +367,7 @@
                   return (n / mycrossfilter.size());
                }
             })
-            .group(countryGroup)
+            .group(countryGroup);
 
          scatterPlot
             .width(500)
