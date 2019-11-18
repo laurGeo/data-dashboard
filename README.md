@@ -1,9 +1,10 @@
 # Milestone 2 Project - Data Dashboard
-This site is for those interested in data about wine. This dataset was obtained from Kaggle. It contains information about different wines, their origination, province, year. 
+This site is for those interested in data about wine. This dataset was obtained from Kaggle(https://www.kaggle.com/zynicide/wine-reviews). It contains information about different wines, their origination, province, year. 
 
 It also has interesting data such as reviews. Reviews contain user names and twitter handles. It is a dynamic dashboard, so users can get accurate up to date information in the click of a button.
 
 ## UX
+I chose to download the csv file of all the data, and importing that using dc. 
 As this is a dashboard, i chose to use the template of a 'single page application'. 
 
 This is because the point of the dashboard is so that a user can take one look at the screen and absorb the data that is there. I put 6 graphs on the screen, as this is a good number for a human to absorb information with.
@@ -31,8 +32,11 @@ I chose to use: overflow: hidden on each of the charts so that if the dashboard 
 
 I chose not to use a legend with the bar charts, as they are self explanitory and do not require it. It would also make the design look much too bulky.
 
+Wireframes are located in the wireframes folder
+
 ### Navigation
 To allow users to go to any graph they want, I chose to make the navbar sticky. This means that the user can click on each chart from wherever they are on the page. 
+On mobile, the menu nicely turns into a hamburger menu. This is so that mobile users find it easy to jump to each graph. This is still sticky from mobile, as it is important that the user always has navigation options.
 
 ### Colors
 I chose to go with a red color scheme for the charts. This is to tie it in to the 'wine' data set
@@ -98,6 +102,7 @@ For running this code locally:
 
 ## Credits
 I got the styling and idea for the logo in the header from: https://codepen.io/FrankieDoodie/pen/dgVGad
+Credits to w3 schools, tutorialspoint.
 
 ## Content
 Content is belonging to the data set obtained from Kaggle.
@@ -105,4 +110,4 @@ Content is belonging to the data set obtained from Kaggle.
 ## Media
 
 ## Acknowledgements
-Inspiration came from codeinstitute data dashboard exercises and azure dashboard, and bootstrap custom dashboard theme
+Inspiration came from codeinstitute data dashboard exercises and azure dashboard, and bootstrap custom dashboard theme. 
