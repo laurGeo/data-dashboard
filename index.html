@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
    <meta charset="UTF-8">
+   
    <title>Wine not?</title>
 
    <link rel="stylesheet" href="dc.css">
@@ -20,10 +22,10 @@
    </div>
 
    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-toggle="collapse">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse">
+      <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+        class="fas fa-bars fa-1x"></i></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
          <a class="navbar-brand" href="#winenot">Wine Not?</a>
          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
@@ -158,7 +160,7 @@
                   </div>
                </div>
                <div class="row bg-light">
-                  <div class="col-md-6">
+                  <div class="col-md-6 col-sm-12">
                      <section id="winery">
                         <h3 class="display-5">Winery the Wine Came From</h3>
                         <div id="pie"></div>
@@ -166,7 +168,7 @@
                      </section>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-6 col-sm-12">
                      <section id="variety">
                         <h3 class="display-5">Variety of Wine</h3>
 
@@ -241,9 +243,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
+ 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"></script>
