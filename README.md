@@ -1,5 +1,5 @@
 # Milestone 2 Project - Data Dashboard
-This site (https://laurgeo.github.io/data-dashboard/) is for those interested in data about wine. This dataset was obtained from Kaggle(https://www.kaggle.com/zynicide/wine-reviews). It contains information about different wines, their origination, province, year. 
+This site (https://laurgeo.github.io/data-dashboard/), named Wine Not? is for those interested in data about wine. This dataset was obtained from Kaggle(https://www.kaggle.com/zynicide/wine-reviews). It contains information about different wines, their origination, province, year. 
 
 It also has interesting data such as reviews. Reviews contain user names and twitter handles. It is a dynamic dashboard, so users can get accurate up to date information in the click of a button.
 
@@ -19,6 +19,8 @@ It encourages them to scroll, as it has an element of curiosity. This is because
 The screen is completely black, so the first instinct would be to scroll.
 
 The user is then greeted with an introduction to what the site is, so they can understand. Here is a very basic overview of the data available.
+
+The logo is using a wine bottle icon from fontawesome as the 'i', which adds characteristic.
 
 The first graph is a simple graph of different wines by the country. This is easily absorbed by the user and easily understood. The following graphs are slightly more complex.
 
