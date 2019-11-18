@@ -162,7 +162,7 @@ i{
   .dc-chart g.row text {
     fill: #fff;
     font-size: 12px;
-    height: 400;
+    height: 400px;
     cursor: pointer; }
   
   .dc-chart g.dc-tooltip path {
