@@ -13,7 +13,9 @@
   padding:40px;
 }
 /*Card*/
-
+i{
+  color:red;
+}
 .card{
   height: 170px;
   margin: 5px;
