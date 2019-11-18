@@ -86,11 +86,10 @@
                   <div class="col">
                      <div class="card">
                         <div class="card-body">
-                           <h5 class="card-title">
-                              50%
+                           <h5 class="card-title" id="numCountry">
                            </h5>
                            <div clas="card-text">
-                              of ppl do this thing.
+                              of wine reviews come from USA.
                            </div>
                         </div>
                      </div>
@@ -98,11 +97,11 @@
                   <div class="col">
                      <div class="card">
                         <div class="card-body">
-                           <h5 class="card-title">
-                              50%
+                           <h5 class="card-title" id="pnGroup">
+
                            </h5>
                            <div clas="card-text">
-                              of ppl do this thing.
+                              of the wine reviewed is Pinot Noir.
                            </div>
                         </div>
                      </div>
@@ -110,83 +109,72 @@
                   <div class="col">
                      <div class="card">
                         <div class="card-body">
-                           <h5 class="card-title">
-                              50%
+                           <h5 class="card-title" id="tdgGroup">
+
                            </h5>
                            <div clas="card-text">
-                              of ppl do this thing.
+                              of the reviewd wine comes from Terre di Giurfo.
                            </div>
                         </div>
                      </div>
                   </div>
-                  <div class="col">
-                     <div class="card">
-                        <div class="card-body">
-                           <h5 class="card-title">
-                              50%
-                           </h5>
-                           <div clas="card-text">
-                              of ppl do this thing.
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                  
 
                </div>
                <div class="row bg-light">
                   <div class="col-md-4">
-                  <section id="reviews">
-                     <h3 class="display-5">Wines Reviewed by Country</h3>
+                     <section id="reviews">
+                        <h3 class="display-5">Wines Reviewed by Country</h3>
 
-                     <div class="col">
-                        <div id="line"></div>
+                        <div class="col">
+                           <div id="line"></div>
 
-                     </div>
-                  </section>
+                        </div>
+                     </section>
                   </div>
 
                   <div class="col-md-4">
-                  <section id="prices">
-                     <h3 class="display-5">Wine Prices</h3>
+                     <section id="prices">
+                        <h3 class="display-5">Wine Prices</h3>
 
-                     <div class="col">
+                        <div class="col">
 
-                        <div id="bar"></div>
+                           <div id="bar"></div>
 
-                     </div>
-                  </section>
-                  </div>   
+                        </div>
+                     </section>
+                  </div>
 
                   <div class="col-md-4">
-                  <section id="price-rating">
-                     <h3 class="display-5">The price compared to the rating</h3>
+                     <section id="price-rating">
+                        <h3 class="display-5">The price compared to the rating</h3>
 
-                     <div class="col">
-                        <div id="scatter"></div>
+                        <div class="col">
+                           <div id="scatter"></div>
 
-                     </div>
-                  </section>
+                        </div>
+                     </section>
                   </div>
                </div>
                <div class="row bg-light">
                   <div class="col-md-6">
-                  <section id="winery">
-                     <h3 class="display-5">Winery the Wine Came From</h3>
-                     <div id="pie"></div>
+                     <section id="winery">
+                        <h3 class="display-5">Winery the Wine Came From</h3>
+                        <div id="pie"></div>
 
-                  </section>
+                     </section>
                   </div>
 
                   <div class="col-md-6">
-                  <section id="variety">
-                     <h3 class="display-5">Variety of Wine</h3>
+                     <section id="variety">
+                        <h3 class="display-5">Variety of Wine</h3>
 
-                     <div class="col">
+                        <div class="col">
 
-                        <div id="pie2"></div>
-                     </div>
+                           <div id="pie2"></div>
+                        </div>
 
-                  </section>
+                     </section>
                   </div>
                </div>
 
@@ -241,15 +229,46 @@
       var countChart = dc.dataCount("#mystats");
       var gridChart = dc.dataGrid("#mygrid");
       var scatterPlot = dc.scatterPlot('#scatter');
+      var numCountry = dc.numberDisplay('#numCountry');
+      var pnGroup = dc.numberDisplay('#pnGroup');
+      var tdgGroup = dc.numberDisplay('#tdgGroup');
+      var avgPts = dc.numberDisplay('#avgPts');
 
       var reviewGrid = dc.dataGrid('#review-data');
 
       d3.csv("./Data/DataSlice2.csv", function (errors, people) {
          var mycrossfilter = crossfilter(people);
+         var count = mycrossfilter.groupAll().reduceCount().value();
+
+         var filteringCountry = mycrossfilter.dimension(function (d) { return d.country; });
+         var f = filteringCountry.filter("US");
+         var n = f.top(Infinity).length;
+         var grouping = f.group().reduceCount();
+         filteringCountry.filterAll();
+        
+
+         var pn = mycrossfilter.dimension(function (d) { return d.variety; });
+         var p = pn.filter("Pinot Noir");
+         var num = p.top(Infinity).length;
+         var pgrouping = p.group().reduceCount();
+         pn.filterAll();
+         
+
+         var tdg = mycrossfilter.dimension(function (d) { return d.winery; });
+         var t = tdg.filter("Terre di Giurfo");
+         var val = t.top(Infinity).length;
+         var tdgGrouping = t.group().reduceCount();
+         tdg.filterAll();
+
+         var pointsAwarded = mycrossfilter.dimension(function (d) { return d.points; });
+         var rangeptsAwarded = pointsAwarded.group().reduceCount().all();
+
+
          // country dimension
          var countryDimension = mycrossfilter.dimension(function (data) {
             return data.country;
          });
+         
          var countryGroup = countryDimension.group().reduceCount();
          //winery dimension
          var wineryDimension = mycrossfilter.dimension(function (data) {
@@ -290,6 +309,50 @@
 
 
          // DRAWING THE SVG CHARTS
+
+
+         avgPts
+            .formatNumber(d3.format(".2%"))
+            .valueAccessor(function (d) {
+               return d.points.avg;
+            })
+            .group(pointsGroup)
+
+
+         tdgGroup
+            .formatNumber(d3.format(".2%"))
+            .valueAccessor(function (d) {
+               //in case of 0
+               if (d.count == 0) {
+                  return 0;
+               } else {
+                  return (val/ mycrossfilter.size());
+               }
+            })
+            .group(wineryGroup)
+
+         pnGroup
+            .formatNumber(d3.format(".2%"))
+            .valueAccessor(function (d) {
+               //in case of 0
+               if (d.count == 0) {
+                  return 0;
+               } else {
+                  return (num / mycrossfilter.size());
+               }
+            })
+            .group(varietyGroup)
+
+         numCountry
+            .formatNumber(d3.format(".2%"))
+            .valueAccessor(function (d) {
+               if (d.count == 0) {
+                  return 0;
+               } else {
+                  return (n / mycrossfilter.size());
+               }
+            })
+            .group(countryGroup)
 
          scatterPlot
             .width(500)
