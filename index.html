@@ -53,6 +53,8 @@
 
    <div class="container-fluid">
       <div class="row bg-light">
+         <div class="col"></div>
+         <div class="col-md-8">
          <blockquote id="winenot" class="blockquote text-center">
             <p> <br>Want to learn about wine? You have come to the right place. Below are several interactive charts,
                you can use to query
@@ -67,7 +69,8 @@
             </p>
             <footer class="blockquote-footer">Wine Not? Creators</footer>
          </blockquote>
-
+         </div>
+      <div class="col"></div>
       </div>
       <h1 class="display-1">Wine Charts</h1>
 
@@ -82,10 +85,8 @@
          </div>
          <div style="clear: both; padding-top: 20px;">
             <div>
-               <h3 class="display-4">Overview</h3>
+               <h3 class="display-5">Overview</h3></br>
                <div class="row bg-light">
-
-
                   <div class="col">
                      <div class="card">
                         <div class="card-body">
@@ -195,6 +196,7 @@
       </div>
 
    </div>
+   </div>
 <footer class="page-footer font-small blue pt-4">
 
       <div class="container-fluid text-center text-md-left">
@@ -254,7 +256,13 @@
 
 
    <script>
+$('#featureDiscovery').click(function () {
+  $('.feature-container-inside').toggleClass('active');
 
+  $('.feature-trigger-outline').toggleClass('active');
+});
+
+// Animations initialization
       var barChart = dc.barChart('#line');
       var barChart2 = dc.barChart('#bar');
       var pieChart = dc.pieChart('#pie');
@@ -343,13 +351,6 @@
 
          // DRAWING THE SVG CHARTS
 
-
-         avgPts
-            .formatNumber(d3.format(".2%"))
-            .valueAccessor(function (d) {
-               return d.points.avg;
-            })
-            .group(pointsGroup)
 
 
          tdgGroup
