@@ -12,7 +12,12 @@
 .row{
   padding:40px;
 }
+/*Card*/
 
+.card{
+  height: 150px;
+  margin: 10px;
+}
 .heading-paragraph {
   position: relative;
   font-family: sans-serif;
@@ -28,13 +33,6 @@
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
 
-
-/*Card*/
-
-.card{
-  height: 150px;
-  margin: 10px;
-}
 @keyframes animate {
   0% {
     background-position: -500%;
@@ -313,7 +311,6 @@
     .sidebar a {float: left;}
     div.content {margin-left: 0;}
   }
-  
   @media screen and (max-width: 400px) {
     .sidebar a {
       text-align: center;

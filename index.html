@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      type="text/css" />
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
    <meta charset="UTF-8">
-   
    <title>Wine not?</title>
 
    <link rel="stylesheet" href="dc.css">
@@ -21,10 +23,10 @@
       <p class="heading-paragraph">Wine not?</p>
    </div>
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-      <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-    aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
-        class="fas fa-bars fa-1x"></i></span></button>
+   <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+         data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+         aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent1">
          <a class="navbar-brand" href="#winenot">Wine Not?</a>
          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -48,8 +50,9 @@
             </li>
          </ul>
          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" id="myInput" onkeyup="myFunction()"aria-label="Search">
-            
+            <input class="form-control mr-sm-2 disabled" type="search" placeholder="Search" id="myInput"
+               aria-label="Search">
+
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
          </form>
       </div>
@@ -59,42 +62,42 @@
       <div class="row bg-light">
          <div class="col"></div>
          <div class="col-md-8">
-         <blockquote id="winenot" class="blockquote text-center">
-            <p> <br>Want to learn about wine? You have come to the right place. Below are several interactive charts,
-               you can use to query
-               the data you love, about the wine you love!<br>
+            <blockquote id="winenot" class="blockquote text-center">
+               <p> <br>Want to learn about wine? You have come to the right place. Below are several interactive charts,
+                  you can use to query
+                  the data you love, about the wine you love!<br>
 
-               <br>Below you will see graphs, which you can click on, in order to filter data on other graphs.<br>
+                  <br>Below you will see graphs, which you can click on, in order to filter data on other graphs.<br>
 
-               <br>This means you get the information you want, when you want, at the click of a button.<br>
+                  <br>This means you get the information you want, when you want, at the click of a button.<br>
 
-               <br>If you have any questions about the site or feedback, please use our social media listed below in the
-               footer.<br>
-            </p>
-            <footer class="blockquote-footer">Wine Not? Creators</footer>
-         </blockquote>
+                  <br>If you have any questions about the site or feedback, please use our social media listed below in
+                  the
+                  footer.<br>
+               </p>
+               <footer class="blockquote-footer">Wine Not? Creators</footer>
+            </blockquote>
          </div>
-      <div class="col"></div>
+         <div class="col"></div>
       </div>
       <h1 class="display-1">Wine Charts</h1>
 
       <div>
          <div class="row">
-            <div style="width: 600px;">
+            <div style="width: 800px;">
                <div id="mystats" class="dc-data-count" style="float: right">
-                  <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll();
-                                    dc.renderAll();">Reset All</a>
+                  <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
                </div>
             </div>
          </div>
          <div style="clear: both; padding-top: 20px;">
             <div>
-               <h3 class="display-5">Overview</h3></br>
+               <h3 class="display-5"> <i style="color:red"class="fas fa-info"></i> Overview </h3></br>
                <div class="row bg-light">
                   <div class="col">
                      <div class="card">
                         <div class="card-body">
-                           <h5 class="card-title" id="numCountry">
+                           <h5 class="card-title" id="numCountry"><i style="color:red"class="fas fa-wine-glass"></i> 
                            </h5>
                            <div clas="card-text">
                               of wine reviews come from USA.
@@ -105,7 +108,7 @@
                   <div class="col">
                      <div class="card">
                         <div class="card-body">
-                           <h5 class="card-title" id="pnGroup">
+                           <h5 class="card-title" id="pnGroup"><i style="color:red"class="fas fa-wine-glass"></i>  
 
                            </h5>
                            <div clas="card-text">
@@ -117,7 +120,7 @@
                   <div class="col">
                      <div class="card">
                         <div class="card-body">
-                           <h5 class="card-title" id="tdgGroup">
+                           <h5 class="card-title" id="tdgGroup"><i style="color:red"class="fas fa-wine-glass"></i> 
 
                            </h5>
                            <div clas="card-text">
@@ -126,13 +129,13 @@
                         </div>
                      </div>
                   </div>
-                  
+
 
                </div>
                <div class="row bg-light">
                   <div class="col-md-4">
                      <section id="reviews">
-                        <h3 class="display-5">Wines Reviewed by Country</h3>
+                        <h3 class="display-5"> <i style="color:red"class="fas fa-globe-americas"></i> Wines Reviewed by Country</h3>
 
                         <div class="col">
                            <div id="line"></div>
@@ -143,7 +146,7 @@
 
                   <div class="col-md-4">
                      <section id="prices">
-                        <h3 class="display-5">Wine Prices</h3>
+                        <h3 class="display-5"> <i style="color:red"class="fas fa-dollar"></i> Wine Prices</h3>
 
                         <div class="col">
 
@@ -155,7 +158,7 @@
 
                   <div class="col-md-4">
                      <section id="price-rating">
-                        <h3 class="display-5">The price compared to the rating</h3>
+                        <h3 class="display-5"> <i style="color:red"class="fas fa-star-half-alt"></i> The price compared to the rating</h3>
 
                         <div class="col">
                            <div id="scatter"></div>
@@ -167,7 +170,7 @@
                <div class="row bg-light">
                   <div class="col-md-6 col-sm-12">
                      <section id="winery">
-                        <h3 class="display-5">Winery the Wine Came From</h3>
+                        <h3 class="display-5"> <i style="color:red"class="fas fa-tree"></i> Winery the Wine Came From</h3>
                         <div id="pie"></div>
 
                      </section>
@@ -175,7 +178,7 @@
 
                   <div class="col-md-6 col-sm-12">
                      <section id="variety">
-                        <h3 class="display-5">Variety of Wine</h3>
+                        <h3 class="display-5"> <i style="color:red"class="fas fa-draw-polygon"></i> Variety of Wine</h3>
 
                         <div class="col">
 
@@ -184,15 +187,15 @@
 
                      </section>
                   </div>
-               </br></br>
+                  </br></br>
                   <div class="col-md-12 col-sm-12">
-                  <section id="reviews">
-                        <h3 class="display-4">Reviews</h3>
+                     <section id="reviews">
+                        <h3 class="display-4"> <i style="color:red"class="fas fa-comments"></i> Reviews</h3>
                         <div style="clear: both">
                            <div class="dc-data-grid" id="mygrid">
-            
+
                            </div>
-            
+
                         </div>
                      </section>
                   </div>
@@ -203,56 +206,55 @@
 
       </div>
 
-</div>
-<footer class="page-footer font-small blue pt-4">
+   </div>
+   <footer class="page-footer font-small blue pt-4">
 
       <div class="container-fluid text-center text-md-left">
-        <div class="row bg-dark">
-          <div class="col-md-6 mt-md-0 mt-3">
+         <div class="row bg-dark">
+            <div class="col-md-6 mt-md-0 mt-3">
 
-            <h5 class="text-uppercase" style="color: white">Thank you</h5>
-            <p style="color: white">Thanks for visiting us</p>
-    
-          </div>
-    
-          <hr class="clearfix w-100 d-md-none pb-3">
+               <h5 class="text-uppercase" style="color: white">Thank you</h5>
+               <p style="color: white">Thanks for visiting us</p>
 
-          <div class="col-md-4 mb-md-0 mb-3">
-            <h5 class="text-uppercase"style="color: white"> Follow us here</h5>
-    
-            <ul class="list-unstyled">
-              <li>
-                  <a href="#"><i class="fa fa-facebook fa-2x"></i> Facebook</a>
-              </li>
-              <li>
-                  <a href="#"><i class="fa fa-twitter fa-2x"></i> Twitter</a>
-              </li>
-              <li>
-                  <a href="#"><i class="fa fa-instagram fa-2x"></i> Instagram</a>
-              </li>
-              <li>
-                  <a href="#"><i class="fa fa-youtube fa-2x"></i> YouTube</a>
-              </li>
-            </ul>
-    
-          </div>
-    
-        </div>
+            </div>
 
-    
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+            <div class="col-md-4 mb-md-0 mb-3">
+               <h5 class="text-uppercase" style="color: white"> Follow us here</h5>
+
+               <ul class="list-unstyled">
+                  <li>
+                     <a href="#"><i class="fa fa-facebook fa-2x"></i> Facebook</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-twitter fa-2x"></i> Twitter</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-instagram fa-2x"></i> Instagram</a>
+                  </li>
+                  <li>
+                     <a href="#"><i class="fa fa-youtube fa-2x"></i> YouTube</a>
+                  </li>
+               </ul>
+
+            </div>
+
+         </div>
+
+
       </div>
-    
+
       <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="#"> Wine Not? Creators</a>
+         <a href="#"> Wine Not? Creators</a>
       </div>
-    
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
+
+   </footer>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
- 
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"></script>
@@ -286,14 +288,14 @@
          var n = f.top(Infinity).length;
          var grouping = f.group().reduceCount();
          filteringCountry.filterAll();
-        
+
 
          var pn = mycrossfilter.dimension(function (d) { return d.variety; });
          var p = pn.filter("Pinot Noir");
          var num = p.top(Infinity).length;
          var pgrouping = p.group().reduceCount();
          pn.filterAll();
-         
+
 
          var tdg = mycrossfilter.dimension(function (d) { return d.winery; });
          var t = tdg.filter("Terre di Giurfo");
@@ -309,7 +311,7 @@
          var countryDimension = mycrossfilter.dimension(function (data) {
             return data.country;
          });
-         
+
          var countryGroup = countryDimension.group().reduceCount();
          //winery dimension
          var wineryDimension = mycrossfilter.dimension(function (data) {
@@ -360,7 +362,7 @@
                if (d.count == 0) {
                   return 0;
                } else {
-                  return (val/ mycrossfilter.size());
+                  return (val / mycrossfilter.size());
                }
             })
             .group(wineryGroup)
@@ -452,7 +454,7 @@
          gridChart
             .dimension(countryDimension)
             .group(function (data) {
-               return  data.title;
+               return data.title;
             })
             .size(100)
             .htmlGroup(function (d) {
@@ -460,13 +462,13 @@
                   '; Count: ' + d.values.length +
                   ' reviews'
             })
-            .html(function (d) { return "<blockquote class=\"blockquote text-center\">" + " " + d.description + "</div></br>" + "<div> <footer class=\"blockquote-footer\">" + d.taster_name + "(" + d.taster_twitter_handle + ")" + "</footer> </blockquote><br>"; })
+            .html(function (d) { return "<blockquote class=\"blockquote text-center\">" + " <i style=\"color:red\"class=\"fas fa-wine-bottle\"></i> " + d.description + "</div></br>" + "<div> <footer class=\"blockquote-footer\">" + d.taster_name + "(" + d.taster_twitter_handle + ")" + "</footer> </blockquote><br>"; })
             .sortBy(function (d) {
                return d.taster_name;
             })
             .order(d3.ascending);
 
-      
+
          reviewGrid
             .dimension(countryDimension)
             .group(function (data) {
