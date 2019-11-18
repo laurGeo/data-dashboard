@@ -1,5 +1,5 @@
 # Milestone 2 Project - Data Dashboard
-This site is for those interested in data about wine. This dataset was obtained from Kaggle(https://www.kaggle.com/zynicide/wine-reviews). It contains information about different wines, their origination, province, year. 
+This site (https://laurgeo.github.io/data-dashboard/) is for those interested in data about wine. This dataset was obtained from Kaggle(https://www.kaggle.com/zynicide/wine-reviews). It contains information about different wines, their origination, province, year. 
 
 It also has interesting data such as reviews. Reviews contain user names and twitter handles. It is a dynamic dashboard, so users can get accurate up to date information in the click of a button.
 
@@ -32,7 +32,7 @@ I chose to use: overflow: hidden on each of the charts so that if the dashboard 
 
 I chose not to use a legend with the bar charts, as they are self explanitory and do not require it. It would also make the design look much too bulky.
 
-Wireframes are located in the wireframes folder
+Wireframes are located in the wireframes folder.
 
 ### Navigation
 To allow users to go to any graph they want, I chose to make the navbar sticky. This means that the user can click on each chart from wherever they are on the page. 
@@ -87,7 +87,9 @@ The red contrasts with the white background, and the greyed out charts. I used f
 8.  I used purgecss to see unnecesary css and remove
 
 ## Deployment
-This site was deployed on github pages. In order to do this, I had to go to the Settings tab, and click deploy.
+This site was deployed on github pages. The link is here: https://laurgeo.github.io/data-dashboard/. 
+
+ In order to do this, I had to go to the Settings tab, and click deploy.
 1. Go to the repository
 2. Click Settings
 3. Under GitHub Pages, and Source, go to master
