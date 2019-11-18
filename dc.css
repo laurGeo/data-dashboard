@@ -7,19 +7,20 @@
   height: 100vh;
   width: 100%;
   background-color: #000;
-  /*background-image: url("https://libreshot.com/wp-content/uploads/2017/03/two-glasses-and-bottle-of-red-wine-861x614.jpg");*/
 }
 .row{
   padding:40px;
 }
-/*Card*/
+/*Icons */
 i{
   color:red;
 }
+/*Card*/
 .card{
   height: 170px;
   margin: 5px;
 }
+/*Heading, wine not logo*/
 .heading-paragraph {
   position: relative;
   font-family: sans-serif;
@@ -35,6 +36,7 @@ i{
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
 
+/*Wine not Animation*/
 @keyframes animate {
   0% {
     background-position: -500%;
@@ -43,11 +45,15 @@ i{
     background-position: 500%;
   }
 }
+
+/*Each separate section*/
   section{
     border: 1px solid white;
     display: block;
     overflow: auto;
   }
+
+  /*Footer*/
   .footer {
     position: static;
     left: 0;
@@ -57,7 +63,8 @@ i{
     color: white;
     text-align: center;
  }
-  
+
+/*Dc.js customized code*/  
   .dc-data-count {
     float: right;
     margin-top: 15px;
